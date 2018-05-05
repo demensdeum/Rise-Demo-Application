@@ -1,0 +1,7 @@
+protocol CKDrawable
+{
+	public declare drawableIdentifier : RiseBuiltInClasses.String
+
+	public declare frame : CKFrame
+	public declare image : CKImage
+}

@@ -1,0 +1,12 @@
+public method main(arguments : RiseBuiltInClasses.list<RiseBuiltInClasses.String> )
+{
+	globalTapController = new IKTapController()
+	globalTapController.initialize(document.getElementById('canvas'))
+
+	globalMainController = new RDMainController()
+	globalMainController.initialize(with tapController : globalTapController)
+	globalMainController.start()
+}
+
+declare globalMainController = null
+declare globalTapController = null

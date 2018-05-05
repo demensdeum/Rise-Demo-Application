@@ -1,0 +1,6 @@
+protocol FSEIterable
+{
+
+	public method step()
+
+}

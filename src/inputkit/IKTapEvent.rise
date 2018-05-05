@@ -1,0 +1,5 @@
+class IKTapEvent
+{
+	public declare x : RiseBuiltInClasses.Number
+	public declare y : RiseBuiltInClasses.Number
+}

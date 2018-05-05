@@ -1,0 +1,74 @@
+class FSEMainController : FSEFlowDelegate
+{
+
+	private declare stateMachine : FSEStateMachine
+	private declare tapController : IKTapController
+	public declare delegate : FSEMainControllerDelegate
+
+	public method initialize(with tapController : IKTapController)
+	{
+
+		this.tapController = tapController
+
+		this.stateMachine = new FSEStateMachine()
+		this.stateMachine.initialize();
+
+	}
+
+	public method register(iterable : FSEIterable, for state : RiseBuiltInClasses.String)
+	{
+		this.stateMachine.register(iterable : iterable, for state : state)
+	}
+
+	public method start(from state : RiseBuiltInClasses.String)
+	{
+
+		this.didFinishEventSenderIdentfier = null
+
+		this.stateMachine.state = state
+
+		window.requestAnimationFrame(mainLoop);
+
+	}
+
+	public method step() 
+	{
+		declare iterable = this.stateMachine.iterable()
+
+		if (iterable != null)
+		{
+			this.tapController.delegate = iterable
+			iterable.flowDelegate = this
+
+			iterable.step()
+
+			if (this.didFinishEventSenderIdentfier == null)
+			{
+				window.requestAnimationFrame(mainLoop)
+			}
+			else
+			{
+				declare didFinishEventSenderIdentfier = this.didFinishEventSenderIdentfier
+				this.delegate.mainControllerDidFinishEvent(controller : this, with senderIdentifier : didFinishEventSenderIdentfier)
+			}
+		}
+		else
+		{
+			RiseBuiltInMethods.print("Bye-Bye!")
+		}
+	}
+
+	public method didFinishEvent(from sender : FSEIdentifiable)
+	{
+
+		this.didFinishEventSenderIdentfier = sender.identifier
+
+	}
+
+}
+
+function mainLoop() {
+
+	globalMainController.step()
+
+}

@@ -1,0 +1,16 @@
+class CKFrame
+{
+	public declare x : RiseBuiltInClasses.Number
+	public declare y : RiseBuiltInClasses.Number
+	public declare width : RiseBuiltInClasses.Number
+	public declare height : RiseBuiltInClasses.Number
+
+	public method initialize(x : RiseBuiltInClasses.Number, y : RiseBuiltInClasses.Number, width : RiseBuiltInClasses.Number, height : RiseBuiltInClasses.Number)
+	{
+		this.x = x
+		this.y = y
+		this.width = width
+		this.height = height
+	}
+
+}

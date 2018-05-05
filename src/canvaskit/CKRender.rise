@@ -1,0 +1,29 @@
+class CKRender
+{
+	private declare canvas : CKCanvas
+	private declare drawableObjects : RiseBuiltInClasses.List<CKDrawable>
+
+	public method initialize(with canvas : CKCanvas)
+	{
+		this.drawableObjects = RiseBuiltInClasses.List<CKDrawable>()
+		this.canvas = canvas
+	}
+
+	public method render()
+	{
+		declare strongThis = this
+
+		this.canvas.clear()
+
+		this.drawableObjects.forEach(function (drawableObject, index) {
+
+			strongThis.canvas.draw(drawableObject)
+
+		})
+	}
+
+	public method add(drawableObject : CKDrawable)
+	{
+		this.drawableObjects.push(drawableObject)
+	}
+}

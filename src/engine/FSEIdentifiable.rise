@@ -1,0 +1,6 @@
+protocol FSEIdentifiable
+{
+
+	public declare identifier : RiseBuiltInClasses.String
+
+}

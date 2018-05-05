@@ -1,0 +1,22 @@
+class IKTapController
+{
+
+	public declare delegate : IKTapControllerDelegate
+
+	public method initialize(canvas : RiseBuiltInClasses.Canvas)
+	{
+		canvas.addEventListener("mouseup", globalTapController.touchUp, false);
+		canvas.addEventListener("touchend", globalTapController.touchUp, false);
+	}
+
+	public method touchUp(event : RiseBuiltInClasses.Event)
+	{
+		RiseBuiltInMethods.print("Touch up!")
+
+		declare tapEvent = new IKTapEvent()
+		tapEvent.x = event.clientX
+		tapEvent.y = event.clientY
+
+		globalTapController.delegate.tapControllerDidReceivedEvent(controller : this, received tapEvent : tapEvent)
+	}
+}

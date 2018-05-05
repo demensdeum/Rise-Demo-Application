@@ -1,0 +1,28 @@
+class CKImage
+{
+	private declare fullImage : RiseBuiltInClasses.Image
+
+	public method initialize(fullImage : RiseBuiltInClasses.Image)
+	{
+		this.fullImage = fullImage
+	}
+
+	public method width()
+	{
+
+		return this.fullImage.width
+
+	}
+
+	public method height()
+	{
+
+		return this.fullImage.height
+
+	}
+
+	public method image()
+	{
+		return this.fullImage
+	}
+}

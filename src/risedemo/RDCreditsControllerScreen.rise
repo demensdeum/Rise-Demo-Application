@@ -1,0 +1,47 @@
+class RDCreditsControllerScreen : FSEIterable, IKTapControllerDelegate, FSEIdentifiable
+{
+	private declare framesCounter : RiseBuiltInClasses.Number
+	private declare render : CKRender
+	public declare stateFlowDelegate : FSEStateFlowDelegate
+	public declare identifier : RiseBuiltInClasses.String
+
+	public method initialize(canvas : CKCanvas, tapController : IKTapController)
+	{
+		this.identifier = "Credits Controller Screen"
+
+		this.tapController = tapController
+
+		this.render = new CKRender()
+		this.render.initialize(canvas)
+
+		declare demensdeumLogoImage = new Image()
+		demensdeumLogoImage.src = "data/demensdeumLogo.png"
+
+		declare demensdeumLogo = new CKStaticImage();
+		demensdeumLogo.initialize(demensdeumLogoImage)
+
+		this.render.add(object : demensdeumLogo)
+	}
+
+	public method step()
+	{
+		this.framesCounter += 1
+
+		if (this.framesCounter < 200)
+		{
+			this.render.render()
+		}
+		else
+		{
+			this.flowDelegate.didFinishEvent(with senderIdentifier : this.identifier)
+		}
+	}
+
+	public method tapControllerDidReceivedEvent(controller : IKTapController, received tapEvent : IKTap)
+	{
+		RiseBuiltInMethods.print("tapControllerDidReceivedEvent")
+
+		this.flowDelegate.didFinishEvent(with senderIdentifier : this.identifier)
+	}
+
+}

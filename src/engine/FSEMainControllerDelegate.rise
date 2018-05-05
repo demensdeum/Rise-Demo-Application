@@ -1,0 +1,6 @@
+protocol FSEMainControllerDelegate
+{
+
+	public method mainControllerDidFinishEvent(controller : FSEMainController, with senderIdentifier : RiseBuiltInClasses.String)
+
+}

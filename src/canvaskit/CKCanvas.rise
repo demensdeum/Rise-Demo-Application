@@ -1,0 +1,24 @@
+class CKCanvas
+{
+
+	private declare canvas : RiseBuiltInClasses.Canvas
+	private declare canvasContext : RiseBuiltInClasses.CanvasContext
+
+	public method initialize(canvas : RiseBuiltInClasses.Canvas)
+	{
+		this.canvas = canvas
+		this.canvasContext = canvas.getContext('2d')
+	}
+
+	public method clear()
+	{
+		this.canvasContext.fillStyle = '#000000'
+		this.canvasContext.fillRect(0, 0, canvas.width, canvas.height)
+	}
+
+	public method draw(drawable : CKDrawable)
+	{
+		this.canvasContext.drawImage(drawable.image.image(), drawable.frame.x, drawable.frame.y)
+	}
+
+}
