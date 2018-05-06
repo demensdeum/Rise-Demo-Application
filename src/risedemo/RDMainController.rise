@@ -11,11 +11,11 @@ class RDMainController : FSEMainControllerDelegate
 		mainController.initialize(with tapController : tapController)
 		mainController.delegate = this
 
-		declare creditsControllerScreen = new DMCreditsControllerScreen()
+		declare creditsControllerScreen = new RDCreditsControllerScreen()
 		creditsControllerScreen.initialize(canvas : canvas)
 		mainController.register(iterable : creditsControllerScreen, for state : "Credits Screen")
 
-		declare demoControllerScreen = new DMDemoControllerScreen()
+		declare demoControllerScreen = new RDDemoControllerScreen()
 		demoControllerScreen.initialize(canvas : canvas)
 		mainController.register(iterable : demoControllerScreen, for state : "Demo Screen")
 	}
