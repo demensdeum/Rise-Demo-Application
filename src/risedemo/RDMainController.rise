@@ -7,27 +7,27 @@ class RDMainController : FSEMainControllerDelegate
 		declare canvas = new CKCanvas()
 		canvas.initialize(document.getElementById('canvas'))
 
-		this.mainController = new FSEMainController();
-		this.mainController.initialize(with tapController : tapController);
-		this.mainController.delegate = this
+		mainController = new FSEMainController()
+		mainController.initialize(with tapController : tapController)
+		mainController.delegate = this
 
-		declare creditsControllerScreen = new RDCreditsControllerScreen()
+		declare creditsControllerScreen = new DMCreditsControllerScreen()
 		creditsControllerScreen.initialize(canvas : canvas)
-		this.mainController.register(iterable : creditsControllerScreen, for state : "Credits Screen")
+		mainController.register(iterable : creditsControllerScreen, for state : "Credits Screen")
 
-		declare demoControllerScreen = new RDDemoControllerScreen()
+		declare demoControllerScreen = new DMDemoControllerScreen()
 		demoControllerScreen.initialize(canvas : canvas)
-		this.mainController.register(iterable : demoControllerScreen, for state : "Demo Screen")
+		mainController.register(iterable : demoControllerScreen, for state : "Demo Screen")
 	}
 
 	public method start()
 	{
-		this.mainController.start(from state : "Credits Screen")
+		mainController.start(from state : "Credits Screen")
 	}
 
 	public method step()
 	{
-		this.mainController.step()
+		mainController.step()
 	}
 
 	public method mainControllerDidFinishEvent(controller : FSEMainController, with senderIdentifier : RiseBuiltInClasses.String)
@@ -36,7 +36,7 @@ class RDMainController : FSEMainControllerDelegate
 
 		if (senderIdentifier == "Credits Controller Screen")
 		{
-			this.mainController.start(from state : "Demo Screen")
+			mainController.start(from state : "Demo Screen")
 		}
 	}
 }

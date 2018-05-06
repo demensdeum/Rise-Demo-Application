@@ -47,16 +47,16 @@ class RDDemoControllerScreen : FSEIterable, IKTapControllerDelegate
 
 		backgroundSecond.frame.x = 320
 
-		this.render.add(object : backgroundFirst)
-		this.render.add(object : backgroundSecond)
-		this.render.add(object : riseText)
-		this.render.add(object : eyesText)
-		this.render.add(object : phoenix)
+		render.add(object : backgroundFirst)
+		render.add(object : backgroundSecond)
+		render.add(object : riseText)
+		render.add(object : eyesText)
+		render.add(object : phoenix)
 	}
 
 	public method step()
 	{
-		this.render.render()
+		render.render()
 
 		backgroundFirst.frame.x -= 1
 		backgroundSecond.frame.x -= 1

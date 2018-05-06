@@ -1,6 +1,4 @@
 protocol FSEFlowDelegate
 {
-
 	public method didFinishEvent(from sender : FSEIdentifiable)
-
 }

@@ -9,20 +9,16 @@ class CKImage
 
 	public method width()
 	{
-
-		return this.fullImage.width
-
+		return fullImage.width
 	}
 
 	public method height()
 	{
-
-		return this.fullImage.height
-
+		return fullImage.height
 	}
 
 	public method image()
 	{
-		return this.fullImage
+		return fullImage
 	}
 }

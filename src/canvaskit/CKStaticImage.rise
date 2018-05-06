@@ -8,12 +8,12 @@ class CKStaticImage : CKDrawable
 
 	public method initialize(image : RiseBuiltInClasses.Image)
 	{
-		this.drawableIdentifier = window.crypto.getRandomValues(new Uint32Array(4)).join('-');
+		drawableIdentifier = window.crypto.getRandomValues(new Uint32Array(4)).join('-');
 
-		this.image = new CKImage()
-		this.image.initialize(image)
+		image = new CKImage()
+		image.initialize(image)
 
-		this.frame = new CKFrame(0, 0, this.image.width(), this.image.height())
+		frame = new CKFrame(0, 0, this.image.width(), this.image.height())
 	}
 
 }

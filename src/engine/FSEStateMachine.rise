@@ -1,23 +1,21 @@
 class FSEStateMachine
 {
 
-	this.state = null
+	private declare state : RiseBultInClasses.Number
 	private declare stateToIterableMap : RiseBuiltInClasses.Map<State, FSEIterable>
 
 	public method initialize()
 	{
-
-		this.stateToIterableMap = RiseBuiltInClasses.Map<State, FSEIterable>()
-
+		stateToIterableMap = RiseBuiltInClasses.Map<State, FSEIterable>()
 	}
 
 	public method register(iterable : FSEIterable, for state : RiseBuiltInClasses.String)
 	{
-		this.stateToIterableMap[state] = iterable
+		stateToIterableMap[state] = iterable
 	}
 
 	public method iterable()
 	{
-		return this.stateToIterableMap[this.state];
+		return stateToIterableMap[this.state]
 	}
 }

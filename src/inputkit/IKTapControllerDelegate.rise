@@ -1,6 +1,4 @@
 protocol IKTapControllerDelegate
 {
-
 	public method tapControllerDidReceivedEvent(controller: IKTapController, received tapEvent : IKTap)
-
 }
